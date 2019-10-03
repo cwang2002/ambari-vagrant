@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # doesn't already exist on the user's system.
 
   # Ubuntu 14.04 x64 VM with VirtualBox 4.3.10 Guest Additions
-  config.vm.box_url = "http://naruh.sakura.ne.jp/vagrant/ubuntu-14-04-x64-virtualbox.box"
+  #config.vm.box_url = "http://naruh.sakura.ne.jp/vagrant/ubuntu-14-04-x64-virtualbox.box"
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", 2048] # RAM allocated to each VM
@@ -25,8 +25,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :path => "bootstrap.sh"
 
   config.vm.define :u1401 do |u1401|
-    # uncomment the line below to set up the ambari dev environment
-    # u1401.vm.provision :shell, :path => "dev-bootstrap.sh"
     u1401.vm.hostname = "u1401.ambari.apache.org"
     u1401.vm.network :private_network, ip: "192.168.14.101"
   end

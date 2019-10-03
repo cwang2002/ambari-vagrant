@@ -9,5 +9,5 @@ mkswap /swapfile
 swapon /swapfile
 echo "/swapfile       none    swap    sw      0       0" >> /etc/fstab
 
-cp /vagrant/insecure_private_key /root/insecure_private_key
-chmod 600 /root/insecure_private_key
+cp /vagrant/private_key /root/private_key
+chmod 600 /root/private_key

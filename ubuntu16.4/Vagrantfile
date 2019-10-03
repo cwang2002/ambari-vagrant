@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/xenial64"
 
   # Fixes changes from https://github.com/mitchellh/vagrant/pull/4707
-  config.ssh.insert_key = false
+  #config.ssh.insert_key = false
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", 2048] # RAM allocated to each VM
@@ -19,8 +19,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :path => "bootstrap.sh"
 
   config.vm.define :u1601 do |u1601|
-    # uncomment the line below to set up the ambari dev environment
-    # u1601.vm.provision :shell, :path => "dev-bootstrap.sh"
     u1601.vm.hostname = "u1601.ambari.apache.org"
     u1601.vm.network :private_network, ip: "192.168.16.101"
   end
